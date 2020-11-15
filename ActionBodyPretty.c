@@ -70,28 +70,76 @@ LAST);
 ///////JSON
 web_custom_request4json(
 "some parameters"
-"Body={\"aaa\": \"va\"}",LAST);
+"Body="
+"{"
+"	\"aaa\": \"va\""
+"}",
+LAST);
 
 web_custom_request5json(
 "some parameters"
-"Body={\"ccc\": \"vc\", \"bbb\":\"vb\"}",
+"Body="
+"{"
+"	\"ccc\": \"vc\","
+"	\"bbb\": \"vb\""
+"}",
 LAST);
 
 web_custom_request6json(
 "some parameters"
-"Body={\"ddd\":"
-"\"vd\", \"bbb\""
-":\"vb\"}",
+"Body="
+"{"
+"	\"ddd\": \"vd\","
+"	\"bbb\": \"vb\""
+"}",
 LAST);
 
 web_custom_request7json(
 	"some parameters"
-	"Body=[{\"eee\": \"ve\"},{\"bbb\": \"vb\"}]",LAST);
+"Body="
+"["
+"	{"
+"		\"eee\": \"ve\""
+"	},"
+"	{"
+"		\"bbb\": \"vb\""
+"	}"
+"]",
+LAST);
 
 web_custom_request8json(
 	"some parameters"
-	"Body=[{\"fff\": \"vf\"},{\"bbb\": \"vb\"}]",
-	LAST);
+	"Body="
+"["
+"	{"
+"		\"fff\": \"vf\""
+"	},"
+"	{"
+"		\"bbb\": \"vb\""
+"	}"
+"]",
+LAST);
+
+web_custom_request8.1json(
+	"some parameters"
+	"Body="
+"["
+"	{"
+"		\"fff\": \"vf\""
+"	},"
+"	{"
+"		\"bbb\": \"vb\","
+"		\"ddd\": \"vd\","
+"		\"parent\": {"
+"			\"parA\": \"valA\","
+"			\"parB\": 222"
+"		}"
+"	},"
+"	{"
+"		\"namenull\": null"
+"	}"
+"]",
+LAST);
 
 
 /////////////////XML

@@ -86,11 +86,18 @@ LAST);
 
 web_custom_request7json(
 	"some parameters"
-	"Body=[{\"eee\": \"ve\"},{\"bbb\": \"vb\"}]",LAST);
+"Body=[{\"eee\": \"ve\"},{\"bbb\": \"vb\"}]",LAST);
 
 web_custom_request8json(
 	"some parameters"
 	"Body=[{\"fff\": \"vf\"},{\"bbb\": \"vb\"}]",
+	LAST);
+
+web_custom_request8.1json(
+	"some parameters"
+	"Body=["
+	"{\"fff\": \"vf\"},  \\n   {\"bbb\": \"vb\",\"ddd\": \\n\"vd\", \"parent\":"
+	"{\"parA\":\"valA\",\"parB\":222}},{\"namenull\":null}]",
 	LAST);
 
 
