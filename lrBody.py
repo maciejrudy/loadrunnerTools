@@ -23,7 +23,7 @@ def parse_args():
 def bodyArgumentsLineByLine(match):
 	#options = parse_args()
 	match = match.group()
-	match = match.replace('\n','').replace('\t','').replace(' ','').replace(',LAST);','').replace('"','')
+	match = match.replace('\n','').replace('\t','').replace(' ','').replace(',LAST);','')
 	#remove last & if eol:
 	match = re.sub(r'&$', '', match)
 	#divide into lines, add " at eol:
@@ -33,26 +33,34 @@ def bodyArgumentsLineByLine(match):
 def prettyPrintJson(match):
 	#options = parse_args()
 	#print("\n### json fix")
+	
+	#prepare for parsing
 	match = match.group()
 	match = match.replace('"Body=','').replace('LAST);','')
 	#" as first/last char in line
 	#match = match.replace('\n"','\n').replace('"\n','\n')
 	#remove last " if eol:
-	match = re.sub(r',$', '', match, flags=re.MULTILINE)
+	match = re.sub(r',[ \t]*$', '', match, flags=re.MULTILINE)
 	match = re.sub(r'"$', '', match, flags=re.MULTILINE)
 	match = re.sub(r'^[\t ]*"', '', match, flags=re.MULTILINE)
+	match = match.replace('\n',' ')
 	match = match.replace('\\\\n','')
+	match = match.replace('\\\\','\\') #embedded json decode
 	#print("xxxxxxxxxxx")
 	#print(match)
 	#unescape \"
 	match = match.replace('\\"','"')
 	#print("zzzzzzzzzz")
 	#print(match)
+	
+	##parse json
 	parsed = json.loads(match)
 	parsed = json.dumps(parsed, indent="\t", sort_keys=False)
 	#print("xxxxx222")
 	#print(parsed)
-	#encode json
+	
+	#encode json back
+	match = match.replace('\\','\\\\') #embedded json encode
 	match = parsed.replace('"', '\\"')
 	#" as first/last char in line
 	match = re.sub(r'$', '"', match, flags=re.MULTILINE)

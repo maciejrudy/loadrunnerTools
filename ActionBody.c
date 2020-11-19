@@ -100,6 +100,12 @@ web_custom_request8.1json(
 	"{\"parA\":\"valA\",\"parB\":222}},{\"namenull\":null}]",
 	LAST);
 
+web_custom_request8.2json(
+	"some parameters"
+	"Body={\"jsonData\":"
+	"\"  {\\\\"nestedKey\\\\": \\\\"nestedValue\\\\"}   \""
+	"}",
+	LAST);
 
 /////////////////XML
 

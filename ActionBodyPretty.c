@@ -27,20 +27,20 @@ web_custom_request1(
 "aaa=bbb"
 "cccccccccc"
 "some parameters"
-"Body=a111=1&"
+""Body=a111=""1&"
 "a2=2&"
-"a3=33333333333&"
-"a4=4",
+"a3=333""3333333""3&"
+"a4=4"",
 LAST);
 
 web_custom_request2(
 "aaa=bbb"
 "cccccccccc"
 "some parameters"
-"Body=a222&"
+""Body=a222""&"
 "a2=2&"
-"a3=3333333333&"
-"a4",
+"a3=333""33""33333&"
+"a""4"",
 LAST);
 
 fadfa fasf saf afa
@@ -50,20 +50,22 @@ web_custom_request3(
 	"aaa=bbb"
 	"cccccccccc"
 	"some parameters"
-	"Body=a333&"
+	""Body=a333""&"
 "a2=2&"
-"a3=3333333333&"
-"a4=4",
+"a3=333""3333333&"
+"""a4=4&"
+""",
 LAST);
 
 web_custom_request3.1(
 	"aaa=bbb"
 	"cccccccccc"
 	"some parameters"
-	"Body=a333&"
+	""Body=a333""&"
 "a2=2&"
-"a3=3333333333&"
-"a4",
+"a3=333""3333333&"
+"""a4&"
+""",
 LAST);
 
 
@@ -141,6 +143,13 @@ web_custom_request8.1json(
 "]",
 LAST);
 
+web_custom_request8.2json(
+	"some parameters"
+	"Body="
+"{"
+"	\"jsonData\": \"  {\\"nestedKey\\": \\"nestedValue\\"}   \""
+"}",
+LAST);
 
 /////////////////XML
 
