@@ -25,12 +25,13 @@ def parse_args():
 def bodyArgumentsLineByLine(match):
 	#options = parse_args()
 	match = match.group()
-	match = match.replace('\n','').replace('\t','').replace(' ','').replace(',LAST);','')
+	match = match.replace('\n','').replace('\t','').replace(' ','').replace('"','').replace(',LAST);','')
 	#remove last & if eol:
 	match = re.sub(r'&$', '', match)
 	#divide into lines, add " at eol:
 	match = match.replace('&','&"\n"')
 	
+	print("\nXXXXXXXX")
 	print(match)
 	
 	return '"' + match + '",\nLAST);'
