@@ -64,7 +64,7 @@ def prettyPrintJson(match):
 	match = parsed.replace('"', '\\"')
 	#" as first/last char in line
 	match = re.sub(r'$', '"', match, flags=re.MULTILINE)
-	match = re.sub(r'^', '"', match, flags=re.MULTILINE)
+	match = re.sub(r'(^[\t]*)', '\\1"', match, flags=re.MULTILINE)
 
 	#print("yyyyyyY")
 	#print(match)
