@@ -15,7 +15,7 @@ def parse_args():
 	"""Parse the command line for options."""
 	parser = argparse.ArgumentParser(description='LR fixer')
 
-	parser.add_argument('-i', '--input_file_name', default='ActionBody.c', help='Input Loadrunner file name')
+	parser.add_argument('-i', '--input_file_name', default='ActionBody.c', help='Input Loadrunner/C file name')
 	parser.add_argument('-o', '--output_file_name', default='ActionBodyPretty.c', help='Output file name')
 
 	options = parser.parse_args()
@@ -109,7 +109,7 @@ def prettyPrintXml(match):
 	match = re.sub(r'\\n\\n', '', match, flags=re.MULTILINE)
 	match = match.replace('""', '')
 	
-	print(match)
+	#print(match)
 	
 	return '"Body="\n' + match + ',\nLAST);'
 
