@@ -31,9 +31,6 @@ def bodyArgumentsLineByLine(match):
 	#divide into lines, add " at eol:
 	match = match.replace('&','&"\n"')
 	
-	print("\nXXXXXXXX")
-	print(match)
-	
 	return '"' + match + '",\nLAST);'
 
 def prettyPrintJson(match):
