@@ -107,6 +107,19 @@ web_custom_request8.2json(
 	"}",
 	LAST);
 
+web_custom_request8.3json(
+	"some parameters"
+	"Body={\"ggg"
+	"\":\"vg\", \""
+	"gg"
+	"ggg"
+	"\""
+	":"
+	"\""
+	"vggggg"
+	"\""
+	}",
+	LAST);
 /////////////////XML
 
 
