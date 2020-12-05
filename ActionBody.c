@@ -120,8 +120,42 @@ web_custom_request8.3json(
 	"\""
 	}",
 	LAST);
+
+
 /////////////////XML
 
+web_custom_requestA.1xml(
+	"some parameters"
+	"Body=<a><b>c</b></a>",
+	LAST);
+
+web_custom_requestA.2xml(
+	"some parameters"
+	"Body=<a>"
+	"<b>"
+	"c"
+	"</b>"
+	"</a>",LAST);
+
+web_custom_requestA.3xml(
+	"some parameters"
+	"Body=<"
+	"a"
+	">"
+	"<"
+	"b"
+	">"
+	"c"
+	"<"
+	"/"
+	"b"
+	"></a"
+	">", LAST);
+
+web_custom_requestA.4xml(
+	"some parameters"
+	"Body=<?xml version=\"1.0\" ?><a x=\"x\" y=\"y\"><b z=\"zzzz\">c</b></a>",
+	LAST);
 
 
 

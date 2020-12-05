@@ -8,6 +8,8 @@ import argparse
 import time
 import re
 import json
+import xml.etree.ElementTree
+from xml.dom import minidom
 
 def parse_args():
 	"""Parse the command line for options."""
@@ -72,14 +74,44 @@ def prettyPrintJson(match):
 
 def prettyPrintXml(match):
 	#options = parse_args()
+	
+	#clean XML
 	match = match.group()
 	match = match.replace('"Body=','').replace('LAST);','')
-	match = re.sub(r',$', '', match, flags=re.MULTILINE)
+
+	#remove first/last " in line
+	match = re.sub(r',[ \t]*$', '', match, flags=re.MULTILINE)
 	match = re.sub(r'"$', '', match, flags=re.MULTILINE)
 	match = re.sub(r'^[\t ]*"', '', match, flags=re.MULTILINE)
-	print("TODO")
+	
+	#concatenate lines
+	match = match.replace('\n','')
 
-	return '"' + match + '";'
+	#unescape \"
+	match = match.replace('\\"','"')
+	
+	##process XML
+	xmlBody = xml.dom.minidom.parseString(match)
+	prettyXmlBody = xmlBody.toprettyxml()
+	#print(prettyXmlBody)
+
+	#remove xml declaration
+	match = prettyXmlBody.replace('<?xml version="1.0" ?>\n','')
+
+	#encode " with \"
+	match = match.replace('"', '\\"')
+	#" as first/last char in line
+	match = re.sub(r'$', '"', match, flags=re.MULTILINE)
+	match = re.sub(r'(^[\t ]*)', '\\1"', match, flags=re.MULTILINE)
+
+	#remove empty line
+	match = re.sub(r'^[ \t]*""\n', '', match, flags=re.MULTILINE)
+	match = re.sub(r'\\n\\n', '', match, flags=re.MULTILINE)
+	match = match.replace('""', '')
+	
+	print(match)
+	
+	return '"Body="\n' + match + ',\nLAST);'
 
 def run_as_script():
 	options = parse_args()
@@ -95,7 +127,7 @@ def run_as_script():
 	#print(lrAction)
 		
 	#body contains XML
-#	lrAction = re.sub(r'"Body=<.*?LAST\);', prettyPrintXml, lrAction, flags=re.DOTALL)
+	lrAction = re.sub(r'"Body=<.*?LAST\);', prettyPrintXml, lrAction, flags=re.DOTALL)
 	#print(lrAction)
 		
 	with open(options.output_file_name, 'w', newline='\r\n') as actionfile:
