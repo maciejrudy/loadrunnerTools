@@ -142,10 +142,10 @@ web_custom_request8.1json(
 LAST);
 
 web_custom_request8.2json(
-	"some parameters"
+	"some parameters",
 	"Body="
 "{"
-	"\"jsonData\": \"  {\\"nestedKey\\": \\"nestedValue\\"}   \""
+	"\"jsonData\": \"  {\\\"nestedKey\\\": \\\"nestedValue\\\"}   \""
 "}",
 LAST);
 
@@ -157,6 +157,19 @@ web_custom_request8.3json(
 	"\"ggggg\": \"vggggg\""
 "}",
 LAST);
+
+
+web_custom_request8.4json(
+	"some parameters84.1",
+	"some parameters84.2",
+"Body="
+"{"
+	"\"opsname\": null,"
+	"\"vars\": {},"
+	"\"query\": \"{ bakerA: bakeriInfo(id: \\\"aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\\\") { baker { id name { es } } address { company city postalCode } bakerRolls (cookLengua: \\\"es\\\") { results { rollShape cookLengua documentType content } } provisioningOptions {  results { id rollName rollDescription provisioningDuration { minDiameter maxDiameter weight } } } } bakerB: bakerInfo (id: \\\"baaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\\\") { baker { id name { es } } address { company city postalCode } bakerRolls (cookLengua: \\\"es\\\") { results { rollShape cookLengua documentType  content } } provisioningOptions { results { id rollName rollDescription provisioningDuration { minDiameter maxDiameter weight } } } } bakerC: bakerinfo(id: \\\"caaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\\\") { baker { id name { es } } address { company city postalCode } bakerRolls (cookLengua: \\\"es\\\") { results { rollShape cookLengua documentType content } } provisioningoOptions { results { id rollName rollDescription provisioningDuration { minDiameter maxDiameter weight } } } } bakerD: bakerinfo(id: \\\"daaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\\\") { baker { id name { es } } address { company  city postalCode } bakerRolls (cookLengua: \\\"es\\\") { results { rollShape cookLengua documentType content } } provisioningOptions { results { id rollName rollDescriptionprovisioningDuration { minDiameter maxDiameter weight } } } }}\""
+"}",
+LAST);
+
 
 
 /////////////////XML
