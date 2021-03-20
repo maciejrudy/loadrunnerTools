@@ -101,9 +101,9 @@ web_custom_request8.1json(
 	LAST);
 
 web_custom_request8.2json(
-	"some parameters"
+	"some parameters",
 	"Body={\"jsonData\":"
-	"\"  {\\\\"nestedKey\\\\": \\\\"nestedValue\\\\"}   \""
+	"\"  {\\\"nestedKey\\\": \\\"nestedValue\\\"}   \""
 	"}",
 	LAST);
 
@@ -120,6 +120,19 @@ web_custom_request8.3json(
 	"\""
 	}",
 	LAST);
+
+
+web_custom_request8.4json(
+	"some parameters84.1",
+	"some parameters84.2",
+"Body={\"opsname\":null,\"vars\":{},\"query\":\"{\\n bakerA: bakeriInfo(id: \\\"aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\\\") {\\n baker {\\n id\\n name {\\n es\\n }\\n }\\n address {\\n company\\n city\\n postalCode\\n }\\n bakerRolls (cookLengua: \\\"es\\\") {\\n results {\\n rollShape\\n cookLengua\\n documentType\\n content\\n }\\n }\\n provisioningOptions "
+"{\\n  results {\\n id\\n rollName\\n rollDescription\\n provisioningDuration {\\n minDiameter\\n maxDiameter\\n weight\\n }\\n }\\n }\\n }\\n bakerB: bakerInfo (id: \\\"baaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\\\") {\\n baker {\\n id\\n name {\\n es\\n }\\n }\\n address {\\n company\\n city\\n postalCode\\n }\\n bakerRolls (cookLengua: \\\"es\\\") {\\n results "
+"{\\n rollShape\\n cookLengua\\n documentType \\n content\\n }\\n }\\n provisioningOptions {\\n results {\\n id\\n rollName\\n rollDescription\\n provisioningDuration {\\n minDiameter\\n maxDiameter\\n weight\\n }\\n }\\n }\\n_ }\\n bakerC: bakerinfo(id: \\\"caaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\\\") {\\n baker {\\n id\\n name {\\n es\\n }\\n }\\n "
+"address {\\n company\\n city\\n postalCode\\n }\\n bakerRolls (cookLengua: \\\"es\\\") {\\n results {\\n rollShape\\n cookLengua\\n documentType\\n content\\n }\\n }\\n provisioningoOptions {\\n results {\\n id\\n rollName\\n rollDescription\\n provisioningDuration {\\n minDiameter\\n maxDiameter\\n weight\\n }\\n }\\n }\\n_ }\\n bakerD: bakerinfo"
+"(id: \\\"daaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee\\\") {\\n baker {\\n id\\n name {\\n es\\n }\\n }\\n address {\\n company \\n city\\n postalCode\\n }\\n bakerRolls (cookLengua: \\\"es\\\") {\\n results {\\n rollShape\\n cookLengua\\n documentType\\n content\\n }\\n }\\n provisioningOptions {\\n results {\\n id\\n rollName\\n rollDescription\\n"
+"provisioningDuration {\\n minDiameter\\n maxDiameter\\n weight\\n }\\n }\\n }\\n }\\n}\\n\"}",
+LAST);
+
 
 
 /////////////////XML
