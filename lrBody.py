@@ -48,29 +48,27 @@ def prettyPrintJson(match):
 	match = re.sub(r'^[\t ]*"', '', match, flags=re.MULTILINE)
 	match = match.replace('\n','')
 	match = match.replace('\\\\n','')
-	match = match.replace('\\\\','\\') #embedded json decode
 	#print("xxxxxxxxxxx")
 	#print(match)
 	#unescape \"
 	match = match.replace('\\"','"')
-	#print("zzzzzzzzzz")
-	#print(match)
 	
 	##parse json
 	parsed = json.loads(match)
 	parsed = json.dumps(parsed, indent="\t", sort_keys=False)
-	#print("xxxxx222")
-	#print(parsed)
+	# print("xxxxx222")
+	# print(parsed)
 	
 	#encode json back
 	match = match.replace('\\','\\\\') #embedded json encode
 	match = parsed.replace('"', '\\"')
+	match = match.replace('\\\\','\\\\\\') #embedded json encode
 	#" as first/last char in line
 	match = re.sub(r'$', '"', match, flags=re.MULTILINE)
 	match = re.sub(r'(^[\t]*)', '\\1"', match, flags=re.MULTILINE)
 
-	#print("yyyyyyY")
-	#print(match)
+	# print("yyyyyyY")
+	# print(match + "\n----------------")
 	return '"Body="\n' + match + ',\nLAST);'
 
 def prettyPrintXml(match):
