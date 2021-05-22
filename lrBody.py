@@ -48,6 +48,7 @@ def prettyPrintJson(match):
 	match = re.sub(r'^[\t ]*"', '', match, flags=re.MULTILINE)
 	match = match.replace('\n','')
 	match = match.replace('\\\\n','')
+	match = match.replace('\\\\','\\') #embedded json decode
 	#print("xxxxxxxxxxx")
 	#print(match)
 	#unescape \"
