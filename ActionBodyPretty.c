@@ -215,6 +215,27 @@ LAST);
 fadfa fasf saf afa
 fasdafafa
 
+
+web_custom_requestBmultipart(
+	"some parameters"
+"Body=--boundary42"
+"Content-Type: text/plain; charset=us-ascii "
+""
+"//based on RFC1341...plain text version of message goes here.... "
+""
+"--boundary42"
+"Content-Type: text/richtext"
+""
+".... richtext version of same message goes here ..."
+"--boundary42"
+"Content-Type: text/x-whatever "
+""
+".... fanciest formatted version of same  message  goes  here"
+"--boundary42--"
+,LAST);
+
+
+
 fadfa fasf saf afa
 fasdafafa
 fadfa fasf saf afa
